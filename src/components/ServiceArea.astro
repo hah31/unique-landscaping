@@ -1,0 +1,29 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section class="py-16 md:py-24 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">
+        Serving Bensenville & the Western Suburbs
+      </h2>
+      <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+        We proudly serve {siteConfig.serviceAreas.join(', ')}, and surrounding DuPage & Cook County communities.
+      </p>
+    </div>
+
+    <div class="rounded-xl overflow-hidden shadow-lg max-w-4xl mx-auto">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47549.44379254956!2d-87.97!3d41.955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb0520573fe03%3A0xe4c67edea8b7b0a4!2sBensenville%2C%20IL!5e0!3m2!1sen!2sus!4v1"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Unique Concrete Construction service area - Bensenville, IL"
+      ></iframe>
+    </div>
+  </div>
+</section>

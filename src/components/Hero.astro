@@ -1,0 +1,39 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section class="relative bg-primary-dark overflow-hidden">
+  <!-- Background pattern (geometric concrete texture feel) -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: linear-gradient(30deg, #D4A843 12%, transparent 12.5%, transparent 87%, #D4A843 87.5%, #D4A843), linear-gradient(150deg, #D4A843 12%, transparent 12.5%, transparent 87%, #D4A843 87.5%, #D4A843), linear-gradient(30deg, #D4A843 12%, transparent 12.5%, transparent 87%, #D4A843 87.5%, #D4A843), linear-gradient(150deg, #D4A843 12%, transparent 12.5%, transparent 87%, #D4A843 87.5%, #D4A843), linear-gradient(60deg, #D4A84377 25%, transparent 25.5%, transparent 75%, #D4A84377 75%, #D4A84377), linear-gradient(60deg, #D4A84377 25%, transparent 25.5%, transparent 75%, #D4A84377 75%, #D4A84377); background-size: 80px 140px; background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 lg:py-44">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        {siteConfig.name}
+      </h1>
+      <p class="text-xl md:text-2xl text-accent font-semibold mb-4">
+        {siteConfig.tagline}
+      </p>
+      <p class="text-lg text-gray-300 mb-10">
+        Driveways &middot; Patios &middot; Stamped Concrete &middot; Retaining Walls &middot; Walkways &middot; Foundations
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center bg-cta hover:bg-cta-hover text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors shadow-lg"
+        >
+          Get Your Free Estimate
+        </a>
+        <a
+          href={`tel:${siteConfig.phone.davidRaw}`}
+          class="inline-flex items-center justify-center border-2 border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold text-lg px-8 py-4 rounded-lg transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Call {siteConfig.phone.david}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
