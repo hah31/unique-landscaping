@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { galleryItems } from '../data/gallery';
+import { siteConfig } from '../data/siteConfig';
+
+const categories = ['All', ...new Set(galleryItems.map((item) => item.category))];
+
+const placeholderColors = [
+  'from-primary/20 to-primary/5',
+  'from-accent/20 to-accent/5',
+  'from-primary-light/20 to-primary-light/5',
+  'from-accent/15 to-primary/10',
+  'from-primary/15 to-accent/10',
+  'from-primary-light/15 to-accent/10',
+];
+---
+
+<BaseLayout
+  title={`Our Work | ${siteConfig.name}`}
+  description="Browse our portfolio of concrete projects including driveways, patios, stamped concrete, and more in Bensenville, IL."
+>
+  <!-- Page Hero -->
+  <section class="bg-primary-dark py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Our Work</h1>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Every project is a reflection of our commitment to quality. Browse our recent concrete work across the Bensenville area.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filters -->
+  <section class="bg-white border-b border-gray-200 sticky top-16 md:top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-2 py-4 overflow-x-auto" id="gallery-filters">
+        {categories.map((category) => (
+          <button
+            class="gallery-filter shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary data-[active]:bg-primary data-[active]:text-white data-[active]:border-primary"
+            data-category={category}
+            data-active={category === 'All' ? '' : undefined}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-12 md:py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+        {galleryItems.map((item, index) => (
+          <div
+            class="gallery-item group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all aspect-[4/3]"
+            data-category={item.category}
+          >
+            <div class={`w-full h-full bg-gradient-to-br ${placeholderColors[index % placeholderColors.length]} flex flex-col items-center justify-center`}>
+              <div class="text-5xl mb-3 opacity-60">
+                {item.category === 'Driveways' ? '🚗' : item.category === 'Stamped Concrete' ? '✨' : item.category === 'Patios' ? '🏡' : item.category === 'Retaining Walls' ? '🧱' : '🚶'}
+              </div>
+              <p class="text-primary font-semibold">{item.category}</p>
+              <p class="text-gray-400 text-xs mt-1">Photo coming soon</p>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+              <p class="text-white text-sm font-medium">{item.alt}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <div class="bg-white rounded-2xl shadow-md p-8 md:p-12 max-w-2xl mx-auto">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-dark mb-4">Like What You See?</h2>
+          <p class="text-gray-700 mb-6">
+            Let's talk about your project. We offer free, no-obligation estimates for all concrete work.
+          </p>
+          <a
+            href="/#contact"
+            class="inline-flex items-center justify-center bg-cta hover:bg-cta-hover text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors shadow-lg"
+          >
+            Get Your Free Estimate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filters = document.querySelectorAll('.gallery-filter');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const category = filter.getAttribute('data-category');
+
+      // Update active states
+      filters.forEach((f) => f.removeAttribute('data-active'));
+      filter.setAttribute('data-active', '');
+
+      // Filter items
+      items.forEach((item) => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'All' || itemCategory === category) {
+          (item as HTMLElement).style.display = '';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

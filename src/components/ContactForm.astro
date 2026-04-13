@@ -1,0 +1,155 @@
+---
+import { siteConfig } from '../data/siteConfig';
+import { services } from '../data/services';
+---
+
+<section id="contact" class="py-16 md:py-24 bg-primary-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+        Request Your Free Estimate
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Tell us about your project and we'll get back to you with a free, no-obligation estimate.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 max-w-5xl mx-auto">
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <form
+          name="estimate-request"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-5"
+        >
+          <!-- Honeypot -->
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+          <input type="hidden" name="form-name" value="estimate-request" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="(630) 555-1234"
+                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email (optional)</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="block text-sm font-medium text-gray-300 mb-1">Service *</label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            >
+              <option value="" class="text-dark">Select a service</option>
+              {services.map((service) => (
+                <option value={service.id} class="text-dark">{service.title}</option>
+              ))}
+              <option value="other" class="text-dark">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="description" class="block text-sm font-medium text-gray-300 mb-1">Project Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              placeholder="Tell us about your project — size, location, timeline, any details that help us give you an accurate estimate."
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-y"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full sm:w-auto bg-cta hover:bg-cta-hover text-white font-bold text-lg px-10 py-4 rounded-lg transition-colors shadow-lg"
+          >
+            Request Free Estimate
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="bg-white/5 rounded-xl p-6 md:p-8 border border-white/10">
+          <h3 class="text-white font-bold text-lg mb-6">Contact Us Directly</h3>
+
+          <div class="space-y-5">
+            <div>
+              <p class="text-gray-400 text-sm">{siteConfig.owners.david}</p>
+              <a
+                href={`tel:${siteConfig.phone.davidRaw}`}
+                class="text-accent hover:text-accent-light text-lg font-semibold transition-colors"
+              >
+                {siteConfig.phone.david}
+              </a>
+            </div>
+
+            <div>
+              <p class="text-gray-400 text-sm">{siteConfig.owners.joel}</p>
+              <a
+                href={`tel:${siteConfig.phone.joelRaw}`}
+                class="text-accent hover:text-accent-light text-lg font-semibold transition-colors"
+              >
+                {siteConfig.phone.joel}
+              </a>
+            </div>
+
+            <hr class="border-white/10" />
+
+            <div>
+              <p class="text-gray-400 text-sm mb-2">Follow Our Work</p>
+              <a
+                href={siteConfig.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-white hover:text-accent transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                {siteConfig.instagram.handle}
+              </a>
+            </div>
+
+            <div>
+              <p class="text-gray-400 text-sm mb-1">Location</p>
+              <p class="text-white">{siteConfig.location.full}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

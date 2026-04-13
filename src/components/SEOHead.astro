@@ -1,0 +1,65 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = `Concrete Contractor Bensenville IL | ${siteConfig.name}`,
+  description = siteConfig.description,
+  canonical = siteConfig.url,
+} = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<title>{title}</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={siteConfig.name} />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteConfig.name,
+  "description": siteConfig.description,
+  "telephone": siteConfig.phone.david,
+  "url": siteConfig.url,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": siteConfig.location.city,
+    "addressRegion": siteConfig.location.state,
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9548,
+    "longitude": -87.9401
+  },
+  "areaServed": siteConfig.serviceAreas.map(area => ({
+    "@type": "City",
+    "name": area
+  })),
+  "sameAs": [siteConfig.instagram.url],
+  "priceRange": "$$",
+  "openingHours": "Mo-Sa 07:00-18:00"
+})} />
