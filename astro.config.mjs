@@ -3,7 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://uniqueconcreteconstruction.com',
+  site: 'https://hah31.github.io',
+  base: '/unique-landscaping',
   output: 'static',
   integrations: [sitemap()],
   vite: {

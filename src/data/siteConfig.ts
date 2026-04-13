@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: 'Expert Concrete Work in Bensenville, IL & Surrounding Areas',
   description:
     'Expert concrete contractor in Bensenville, IL. Driveways, patios, stamped concrete, retaining walls & more. Free estimates. Call (630) 701-0361.',
-  url: 'https://uniqueconcreteconstruction.com',
+  url: 'https://hah31.github.io/unique-landscaping',
   phone: {
     david: '(630) 701-0361',
     davidRaw: '+16307010361',

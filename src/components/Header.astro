@@ -1,11 +1,12 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { url } from '../data/utils';
 
 const navLinks = [
-  { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/#about' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Services', href: url('/#services') },
+  { label: 'About', href: url('/#about') },
+  { label: 'Gallery', href: url('/gallery') },
+  { label: 'Contact', href: url('/#contact') },
 ];
 ---
 
@@ -13,7 +14,7 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 shrink-0">
+      <a href={url('/')} class="flex items-center gap-2 shrink-0">
         <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
           <span class="text-accent font-extrabold text-xl">U</span>
         </div>
