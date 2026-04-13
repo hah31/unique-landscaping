@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { galleryItems } from '../data/gallery';
 import { siteConfig } from '../data/siteConfig';
+import { url } from '../data/utils';
 
 const categories = ['All', ...new Set(galleryItems.map((item) => item.category))];
 
@@ -77,7 +78,7 @@ const placeholderColors = [
             Let's talk about your project. We offer free, no-obligation estimates for all concrete work.
           </p>
           <a
-            href="/#contact"
+            href={url('/#contact')}
             class="inline-flex items-center justify-center bg-cta hover:bg-cta-hover text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors shadow-lg"
           >
             Get Your Free Estimate

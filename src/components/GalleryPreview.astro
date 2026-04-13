@@ -1,5 +1,6 @@
 ---
 import { galleryItems } from '../data/gallery';
+import { url } from '../data/utils';
 
 const previewItems = galleryItems.slice(0, 6);
 
@@ -42,7 +43,7 @@ const placeholderColors = [
 
     <div class="text-center mt-10">
       <a
-        href="/gallery"
+        href={url('/gallery')}
         class="inline-flex items-center text-primary font-semibold text-lg hover:text-primary-light transition-colors"
       >
         View All Projects

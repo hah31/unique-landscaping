@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { url } from '../data/utils';
 ---
 
 <footer class="bg-primary-dark text-white">
@@ -26,10 +27,10 @@ import { siteConfig } from '../data/siteConfig';
       <div>
         <h3 class="font-bold text-lg mb-4">Quick Links</h3>
         <nav class="space-y-2">
-          <a href="/#services" class="block text-gray-400 hover:text-accent transition-colors">Services</a>
-          <a href="/#about" class="block text-gray-400 hover:text-accent transition-colors">About Us</a>
-          <a href="/gallery" class="block text-gray-400 hover:text-accent transition-colors">Gallery</a>
-          <a href="/#contact" class="block text-gray-400 hover:text-accent transition-colors">Contact</a>
+          <a href={url('/#services')} class="block text-gray-400 hover:text-accent transition-colors">Services</a>
+          <a href={url('/#about')} class="block text-gray-400 hover:text-accent transition-colors">About Us</a>
+          <a href={url('/gallery')} class="block text-gray-400 hover:text-accent transition-colors">Gallery</a>
+          <a href={url('/#contact')} class="block text-gray-400 hover:text-accent transition-colors">Contact</a>
         </nav>
       </div>
 
